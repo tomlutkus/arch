@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+pacman -S  mesa lib32-mesa xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau opencl-rusticl-mesa
+
+# DRIVER > X11, Wayland
+# VULKAN > Games
+# OPENCL > GPU, Blender, Gimp, Davinci Resolve
+# VDPAU > OBS, FFMPEG, Simple Screen Recorders

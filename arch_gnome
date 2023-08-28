@@ -1,0 +1,7 @@
+#!/bin/bash
+
+pacman -Syu
+
+pacman -S gnome gnome-tweaks dconf-editor gedit ghex file-roller seahorse
+
+sudo systemctl enable --now gdm.service

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+git clone https://aur/archlinux.org/paru.git
+cd paru
+makepkg-si
+
+paru -Syu
+
+paru -S --needed timeshift-autosnap starship ttf-jetbrains-mono-nerd ttf-jetbrains-mono-nerd nerd-fonts ttf-ms-fonts

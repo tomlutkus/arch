@@ -1,0 +1,1 @@
+pacman -S --needed --noconfirm pacman-contrib archlinux-contrib duf less btop htop neofetch tree lf

@@ -1,0 +1,40 @@
+#!/bin/bash
+
+ln -sf /usr/share/zoneinfo/Europe/Dublin /etc/localtime
+hwclock --systohc
+# sed -i '178s/.//' /etc/locale.gen	# find the en_US line
+# sed -i '179s/.//' /etc/locale.gen	# find the en_IE line
+locale-gen
+echo "LANG=en_US.UTF-8" >> /etc/locale.conf
+echo "prophecy" >> /etc/hostname
+echo "127.0.0.1 localhost" >> /etc/hosts
+echo "::1       localhost" >> /etc/hosts
+echo "127.0.1.1 arch.localdomain arch" >> /etc/hosts
+# echo root:password | chpasswd
+
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+pacman -S amd-ucode grub grub-btrfs efibootmgr os-prober dosfsutils networkmanager networkmanage-applet dialog wpa_supplicant reflector base-devel linux-headers xdg-user-dirs xdg-utils inetutils dnsutils bluez bluez-utils cups alsa-utils pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber pavucontrol bash-completion vim less git man-db man-pages tealdeer util-linux firewalld pacutils gufw
+
+# For laptops
+# pacman -S --needed --noconfirm acpi acpid tlp
+
+systemctl enable NetworkManager
+systemctl enable bluetooth
+systemctl enable cups.serviece
+systemctl enable reflector.timer
+systemctl enable fstrim.timer
+systemctl enable firewalld
+systemctl enable acpid
+
+useradd -m user
+echo user:passwod | chpasswd
+
+echo "user ALL=(ALL) ALL" >> /etc/sudoers.d/user
+
+
+
+
+printf "\e[1;32mDone! Type exit and reboot.\e[0m"

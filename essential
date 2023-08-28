@@ -1,0 +1,1 @@
+pacstrap /mnt base linux linux-firmware btrfs-progs networkmanager vim man-db man-pages terminus-font
