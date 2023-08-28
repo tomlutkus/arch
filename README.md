@@ -1,2 +1,0 @@
-# arch
-Archlinux setup files
